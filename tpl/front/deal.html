@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<meta name="keywords" content="一秒疯抢,{$pro.ptname},{$pro.ptname}优站,{$pro.ptname}U站,{$pro.ptname}官网,{$pro.ptname}独家秒杀包邮,{$pro.ptname}9.9包邮,优站">
+<meta name="Description" content="由{$pro.ptname}u站,提供的各种实惠9.9包邮,清仓值得买等特卖商品,独家秒杀包邮,天天有特价">
+<title>一秒疯抢_{$pro.title}_{$pro.ptname}_{$pro.ptname}优站_{$pro.ptname}官网,精选{$pro.ptname}u站优质商品</title>
+<link rel="stylesheet" href="/assets/stylesheets/front/head.css" />
+<link rel="stylesheet" href="/assets/stylesheets/front/foot.css" />
+<link rel="stylesheet" href="/assets/stylesheets/front/deal.css" />
+<script type="text/javascript"  src="/assets/Javascripts/jquery-2.0.3.min.js"></script>
+<script type="text/javascript"  src="/assets/Javascripts/jquery.lazyload.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$(window).scroll(function() {
+		if($(window).scrollTop() >  $(".head-around").height()+80){
+			$(".head-nav-around").addClass("scoll_nav")
+		}else{
+			$(".head-nav-around").removeClass( "scoll_nav")
+		}
+		if( $(window).scrollTop() >200 ){  //判断滚动后高度超过200px,就显示  
+			$("#gotop").fadeIn(400); //淡出     
+		}else{      
+			$("#gotop").stop().fadeOut(400); //如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动   
+		}
+	});
+        $("img.lazy").lazyload({
+            placeholder: "http://img03.taobaocdn.com/imgextra/i3/1602138689/T2__REXchOXXXXXXXX-1602138689.gif", 
+            effect: "fadeIn", 
+            failurelimit: 10
+        });
+})
+</script>
+</head>
+<body>
+{include file="front/head.html"}
+<div class="deal-main">
+	<div class="deal-left">
+		<div class="item-deal">
+			<div class="item-img" style="position:relative;">
+				<img class="lazy" data-original="{$pro.pic}" />
+			</div>
+			<div class="item-tit" style="position:relative;">
+				{$pro.title}
+			</div>
+			<span class="time">开始时间：{$pro.postdt}</span>
+			<del class="oprice">市场价:￥{$pro.oprice}元</del>
+			<span class="nprice">￥{$pro.nprice}</span><br/>
+                        {if $single}
+                            <a isconvert=1 data-itemid="{$pro.iid}" target="_blank" style="cursor:pointer">
+                        {else}
+                            <a href="{$pro.link}" target="_blank">
+                        {/if}
+                            <span class="buy" style="position:relative;">立即购买</span>
+                        </a>
+                        <a isconvert=1 data-sellerid="{$pro.sid}" target="_blank" style="cursor:pointer;color:gray;text-decoration:none">去店铺看看</a>
+			<div class="clearfix"></div>
+		</div>
+                <div class="hr"></div>
+		<div class="items-like">
+			<p>一秒疯抢相关推荐....</p>
+			<div class="items">
+				<ul>
+					{foreach key=k item=v from=$dujia}
+						<li>
+							<a target="_blank" href="http://www.yimiaofengqiang.com/main/deal/id/{$v.id}.html">
+								<img class="lazy" data-original="{$v.pic}"/>
+							</a>
+							<div class="price">
+								<del>￥{$v.oprice}</del>
+								<span>￥{$v.nprice}</span>
+								<a target="_blank" href="http://www.yimiaofengqiang.com/main/deal/id/{$v.id}.html">立即购买</a>
+							</div>
+							
+						</li>
+					{/foreach}
+					<div class="clearfix"></div>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="deal-right">
+		
+	</div>
+	<div class="clearfix"></div>
+</div>
+{include file="front/foot.html"}
+</body>
+</html>
