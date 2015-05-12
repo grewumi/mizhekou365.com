@@ -125,50 +125,14 @@ class main extends spController{
                     $this->searchnull = 1;
 		$smarty->assign("admin",$_SESSION['admin'],true);//$this->admin = $_SESSION['admin'];
 		
-		// 输出静态页面
-		/* $content = $this->getView()->fetch("front/index.html");
-		$fp = fopen("front/day/update.html","w");
-		fwrite($fp, $content);
-		fclose($fp); */
-		//spClass('spHtml')->make(array('main','index'));
-		// END 输出静态页面
-		if($mode){
-			$smarty->display("front/mailindex.html");
-                }else{
-                    if($jsonp){ 
-                        if($othersync){
-//                            for($i=0;$i<count($itemsC1);$i++){
-//                                for($j=0;$j<count($itemsC1[$i]);$j++){
-//                                    echo $itemsC1[$i][$j]['title'];
-//                                    $itemsC1[$i][$j]['title'] = iconv('gbk','utf-8',$itemsC1[$i][$j]['title']);
-//                                    if($touz)
-//                                         $itemsC1[$i][$j]['uzid'] = getidfromiidforuz($itemsC1[$i][$j]['iid']);
-//                                }
-//                            }
-                            foreach($itemsC1 as $k=>&$iv){
-                                foreach($iv as $k=>&$v){
-                                    $v['title'] = iconv('gbk','utf-8',$v['title']);
-                                }   
-                            }
-                            echo json_encode($itemsC1);
-                        }else{
-                            foreach($itemList as $k=>&$iv){
-                                    foreach($iv as $k=>&$v){
-                                            $v['title'] = iconv('gbk','utf-8',$v['title']);
-                                    }
-                            }
-                            echo json_encode($itemList);
-//                            var_dump($itemList);
-                        }
-                    }else{
-                        $smarty->display("front/index.html");
-                    }
-                }
+		
+		
 	}
         
         public function deal(){
 		$id = $this->spArgs('id');
-		$pros = json_decode(file_get_contents("http://www-1.yimiaofengqiang.com/main/deal/id/".$id.".html?dealsync=1"),1);
+		$pro = json_decode(file_get_contents("http://www-1.yimiaofengqiang.com/main/deal/id/".$id.".html?dealsync=1"),1);
+                $pro['title'] = iconv('utf-8','gbk',urldecode($pro['title']));
                 // END 获取seller_id
                 if($pro){
                     $this->pro = $pro;
