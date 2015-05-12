@@ -125,8 +125,45 @@ class main extends spController{
                     $this->searchnull = 1;
 		$smarty->assign("admin",$_SESSION['admin'],true);//$this->admin = $_SESSION['admin'];
 		
-		
-		
+		// Êä³ö¾²Ì¬Ò³Ãæ
+		/* $content = $this->getView()->fetch("front/index.html");
+		$fp = fopen("front/day/update.html","w");
+		fwrite($fp, $content);
+		fclose($fp); */
+		//spClass('spHtml')->make(array('main','index'));
+		// END Êä³ö¾²Ì¬Ò³Ãæ
+		if($mode){
+			$smarty->display("front/mailindex.html");
+                }else{
+                    if($jsonp){ 
+                        if($othersync){
+//                            for($i=0;$i<count($itemsC1);$i++){
+//                                for($j=0;$j<count($itemsC1[$i]);$j++){
+//                                    echo $itemsC1[$i][$j]['title'];
+//                                    $itemsC1[$i][$j]['title'] = iconv('gbk','utf-8',$itemsC1[$i][$j]['title']);
+//                                    if($touz)
+//                                         $itemsC1[$i][$j]['uzid'] = getidfromiidforuz($itemsC1[$i][$j]['iid']);
+//                                }
+//                            }
+                            foreach($itemsC1 as $k=>&$iv){
+                                foreach($iv as $k=>&$v){
+                                    $v['title'] = iconv('gbk','utf-8',$v['title']);
+                                }   
+                            }
+                            echo json_encode($itemsC1);
+                        }else{
+                            foreach($itemList as $k=>&$iv){
+                                    foreach($iv as $k=>&$v){
+                                            $v['title'] = iconv('gbk','utf-8',$v['title']);
+                                    }
+                            }
+                            echo json_encode($itemList);
+//                            var_dump($itemList);
+                        }
+                    }else{
+                        $smarty->display("front/index.html");
+                    }
+                }
 	}
         
         public function deal(){
