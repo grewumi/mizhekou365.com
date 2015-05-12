@@ -98,11 +98,11 @@ class main extends spController{
 		$itemsTemp = json_decode(file_get_contents("http://www-1.yimiaofengqiang.com/?jsonp=1&page=".$page),1);
                 $itemsC1 = json_decode(file_get_contents("http://www-1.yimiaofengqiang.com/?jsonp=1&othersync=1&page=".$page),1);
 		for($i=0;$i<count($itemsC1);$i++){
-                    $itemsC1[$i]['title'] = urldecode(iconv('utf-8','gbk',$itemsC1[$i]['title']));
+                    $itemsC1[$i]['title'] = iconv('utf-8','gbk',urldecode($itemsC1[$i]['title']));
 
                 }
                 for($i=0;$i<count($itemsTemp);$i++){
-                    $itemsTemp[$i]['title'] = urldecode(iconv('utf-8','gbk',$itemsTemp[$i]['title']));
+                    $itemsTemp[$i]['title'] = iconv('utf-8','gbk',urldecode($itemsTemp[$i]['title']));
 
                 }
 		$itemList = $itemsTemp;
