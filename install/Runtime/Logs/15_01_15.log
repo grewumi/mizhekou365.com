@@ -1,0 +1,14 @@
+[ 2015-01-15T20:21:58+08:00 ] 127.0.0.1 /install.php
+NOTIC: [2] array_walk_recursive() expects parameter 2 to be a valid callback, function 'filter_exp' not found or invalid function name D:\wamp\www\thinkphp\Lib\Core\App.class.php 第 56 行.
+NOTIC: [2] array_walk_recursive() expects parameter 2 to be a valid callback, function 'filter_exp' not found or invalid function name D:\wamp\www\thinkphp\Lib\Core\App.class.php 第 57 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.014536s ]
+
+[ 2015-01-15T20:21:58+08:00 ] 127.0.0.1 /install.php
+NOTIC: [2] array_walk_recursive() expects parameter 2 to be a valid callback, function 'filter_exp' not found or invalid function name D:\wamp\www\thinkphp\Lib\Core\App.class.php 第 56 行.
+NOTIC: [2] array_walk_recursive() expects parameter 2 to be a valid callback, function 'filter_exp' not found or invalid function name D:\wamp\www\thinkphp\Lib\Core\App.class.php 第 57 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000934s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+
